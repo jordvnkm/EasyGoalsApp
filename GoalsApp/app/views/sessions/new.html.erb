@@ -1,0 +1,15 @@
+<h1>Sign In</h1>
+
+<%= render "layouts/errors" %>
+
+<form class="" action="/session" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <label>username</label>
+  <input type="text" name="user[username]" id="username">
+  <br>
+  <label>password</label>
+  <input type="password" name="user[password]" id="password">
+  <br>
+
+  <input type="submit" value="Sign In">
+</form>

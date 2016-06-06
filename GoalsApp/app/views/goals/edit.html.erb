@@ -1,0 +1,20 @@
+<h1>Edit Link</h1>
+
+<%= render "layouts/errors" %>
+
+<form action="<%= goal_url(@goal)%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+  <label>Title</label>
+  <input type="text" name="goal[title]" id="Title" value="<%= @goal.title %>">
+  <br>
+  <label>private</label>
+  <input type="radio" name="goal[private_goal]" id="private" value=<%= true %> <%= "checked" if @goal.private_goal %>>
+  <br>
+  <label>public</label>
+  <input type="radio" name="goal[private_goal]" id="private" value=<%= false %>  <%= "checked" unless @goal.private_goal %>>
+
+  <input type="submit" value="Update Goal">
+</form>
