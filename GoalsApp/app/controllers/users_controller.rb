@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :skip_login
+  before_action :skip_login, only: [:new, :create]
 
   def new
     @user = User.new
@@ -15,6 +15,10 @@ class UsersController < ApplicationController
       flash.now[:errors] = @user.errors.full_messages
       render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def user_params

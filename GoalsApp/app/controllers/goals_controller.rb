@@ -12,7 +12,7 @@ class GoalsController < ApplicationController
     if @goal.save
       redirect_to goal_url(@goal)
     else
-      flash[:errors] = @goal.errors.full_messages
+      flash.now[:errors] = @goal.errors.full_messages
       render :new
     end
   end

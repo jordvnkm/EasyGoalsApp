@@ -1,3 +1,5 @@
+
+
 module AuthFeaturesHelper
   def sign_up_user(username)
     visit "/users/new"
@@ -26,6 +28,17 @@ module AuthFeaturesHelper
     let(:jill_goal) { jill.goals.create!(title: 'Run 5 Miles', private_goal: true) }
   end
 
+  def make_goal(title, status)
+    visit "/goals/new"
+
+    fill_in "Title", with: title
+    choose "private"
+    click_button "Create Goal"
+  end
+
+  def sign_out
+    click_button "Sign Out"
+  end
   # def create_goal(goal)
   #   click_button "Add Goal"
   #   fill_in "Title", with: goal

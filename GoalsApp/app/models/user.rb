@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   has_many :goals
 
+  has_many :comments, as: :commentable
+
   def ensure_session_token
     self.session_token ||= generate_session_token
   end
